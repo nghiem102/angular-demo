@@ -1,0 +1,62 @@
+
+<h1 *ngIf="id != undefined">Edit product {{productDetail.name}}</h1>
+<h1 *ngIf="id == undefined">Add Product</h1>
+
+<form #productForm="ngForm" class="form" (ngSubmit)="OnSubmit(productForm.value)">
+  <div class="form-group" *ngIf="id">
+      <input
+      type="hidden"
+      name="id"
+      [(ngModel)]="productDetail.id"
+      >
+    </div>
+
+  <div class="form-group">
+    <input
+    type="text"
+    class="form-control"
+    placeholder="name"
+    name="name"
+    required
+    [(ngModel)]="productDetail.name"
+    #name = "ngModel"
+    >
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="price"
+    min="1"
+    name="price"
+      [(ngModel)]="productDetail.price"
+      #price = "ngModel"
+      >
+  </div>
+  <div class="form-group">
+    <input
+    type="text"
+    class="form-control"
+    placeholder="desc"
+      minlength="6"
+      name="desc"
+    [(ngModel)]="productDetail.desc"
+    #desc = "ngModel"
+    >
+  </div>
+
+  <div *ngIf = "productForm.form.dirty" style="color :red">
+    <div *ngIf="name.errors?.['required']">
+      phải nhập tên sản phẩm
+    </div>
+    <div *ngIf="price.errors?.['min']">
+      giá trị phải lớn hơn 0
+    </div>
+    <div *ngIf="desc.errors?.['minlength']">
+      Mô tả phải từ 6 kí tự
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success" [disabled]="productForm.form.invalid">Submit</button>
+  </div>
+</form>
