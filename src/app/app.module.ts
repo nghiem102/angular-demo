@@ -19,6 +19,8 @@ import { LayoutComponent } from './layouts/layout/layout.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { AsideComponent } from './layouts/aside/aside.component';
 import { FooterComponent } from './layouts/footer/footer.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { FooterComponent } from './layouts/footer/footer.component';
     AppRoutingModule,
     NgbModule,
     FormsModule, // import cho cac component con su dung duoc,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
