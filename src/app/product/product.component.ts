@@ -43,7 +43,17 @@ export class ProductComponent implements OnInit {
     })
     // const productFilter = this.products.filter((item: any) => item.id !== id)
     // this.products = [...productFilter]
-
-
+  }
+  parebtChangeStatus(event:any, productId:number) {
+    const currentProduct = this.products.find((product:any) => product.id === productId)
+    if(currentProduct) {
+      this.ps.update(productId,
+        {
+          ...currentProduct,
+          "status": event
+        }
+        ).subscribe()
+    }
+    this.getProduct()
   }
 }
