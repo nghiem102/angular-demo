@@ -21,6 +21,7 @@ import { AsideComponent } from './layouts/aside/aside.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { ShowValidateComponent } from './components/show-validate/show-validate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LayoutComponent,
     HeaderComponent,
     AsideComponent,
-    FooterComponent
+    FooterComponent,
+    ShowValidateComponent
   ],
   imports: [
     BrowserModule,
